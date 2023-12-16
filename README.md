@@ -1,6 +1,6 @@
 # Nabs Data Pipeline
 
-This is an attempt at building a Data Pipeline processing services.
+This is a demonstration of an opinionated data pipeline.
 
 The following goals are to be achieved:
 
@@ -14,6 +14,11 @@ The following goals are to be achieved:
 Here is the structure of the Nabs Data Pipeline Service:
 
 ```
-
+Events
+Connection
+PipelineOrchestrator
+Pipeline
+  - Stage
+    - Step
 
 ```
