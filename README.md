@@ -11,7 +11,7 @@ The following goals are to be achieved:
 - [ ] Each stage must be able to contain multiple steps.
 - [ ] Each step should be able to be individually defined and even made to be reusable.
 
-Here is the structure of the Nabs Data Pipeline Service:
+Here is the structure of the Nabs Data Pipeline:
 
 ```
 Events
