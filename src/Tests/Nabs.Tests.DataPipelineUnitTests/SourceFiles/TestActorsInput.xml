@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<People>
+		<Person id="f5bb3192-e558-4ce7-aced-14b0bb08091e">
+			<FirstName>Tom</FirstName>
+			<LastName>Hanks</LastName>
+			<DateOfBirth>1956-07-09</DateOfBirth>
+		</Person>
+		<Person id="512b4a3f-edc1-428a-87af-2d3f4c17bf1d">
+			<FirstName>Meryl</FirstName>
+			<LastName>Streep</LastName>
+			<DateOfBirth>1949-06-22</DateOfBirth>
+		</Person>
+		<Person id="8cad763d-0a64-4e29-a706-9fbca65518d1">
+			<FirstName>Leonardo</FirstName>
+			<LastName>DiCaprio</LastName>
+			<DateOfBirth>1974-11-11</DateOfBirth>
+		</Person>
+		<Person id="dbcf1fd5-e2b9-4e1c-920c-d47fe1c9c494">
+			<FirstName>Julia</FirstName>
+			<LastName>Roberts</LastName>
+			<DateOfBirth>1967-10-28</DateOfBirth>
+		</Person>
+		<Person id="184d287d-1924-4b5b-a71b-01c96f20ab23">
+			<FirstName>Brad</FirstName>
+			<LastName>Pitt</LastName>
+			<DateOfBirth>1963-12-18</DateOfBirth>
+		</Person>
+		<Person id="444c92c3-9d41-468f-99e8-865c89c78f26">
+			<FirstName>Angelina</FirstName>
+			<LastName>Jolie</LastName>
+			<DateOfBirth>1975-06-04</DateOfBirth>
+		</Person>
+		<Person id="fe71692a-d56d-4c6f-b7d3-429a8f2d0bcf">
+			<FirstName>Johnny</FirstName>
+			<LastName>Depp</LastName>
+			<DateOfBirth>1963-06-09</DateOfBirth>
+		</Person>
+		<Person id="49d9a3c2-cb72-46be-b253-6911b6cafd24">
+			<FirstName>Nicole</FirstName>
+			<LastName>Kidman</LastName>
+			<DateOfBirth>1967-06-20</DateOfBirth>
+		</Person>
+		<Person id="697ec54e-205e-4356-b976-76b47cd4dfe5">
+			<FirstName>Robert</FirstName>
+			<LastName>Downey Jr.</LastName>
+			<DateOfBirth>1965-04-04</DateOfBirth>
+		</Person>
+		<Person id="d02897d3-b43a-4e19-864b-e461d31d63d9">
+			<FirstName>Scarlett</FirstName>
+			<LastName>Johansson</LastName>
+			<DateOfBirth>1984-11-22</DateOfBirth>
+		</Person>
+		<Person id="cf842bc7-4e64-44c7-9aba-26dad3790a03">
+			<FirstName>Denzel</FirstName>
+			<LastName>Washington</LastName>
+			<DateOfBirth>1954-12-28</DateOfBirth>
+		</Person>
+		<Person id="51547be3-39a2-4029-8ebc-60a5356e33ad">
+			<FirstName>Matt</FirstName>
+			<LastName>Damon</LastName>
+			<DateOfBirth>1970-10-08</DateOfBirth>
+		</Person>
+		<Person id="d9cdbb4b-bea3-4096-a575-670d325e63ce">
+			<FirstName>Charlize</FirstName>
+			<LastName>Theron</LastName>
+			<DateOfBirth>1975-08-07</DateOfBirth>
+		</Person>
+		<Person id="282cf1c5-dfd1-444f-91db-b75bb246b4e6">
+			<FirstName>Dwayne</FirstName>
+			<LastName>Johnson</LastName>
+			<DateOfBirth>1972-05-02</DateOfBirth>
+		</Person>
+		<Person id="2c3f55fd-ca2c-4e44-b374-364d323ae786">
+			<FirstName>Kate</FirstName>
+			<LastName>Winslet</LastName>
+			<DateOfBirth>1975-10-05</DateOfBirth>
+		</Person>
+	</People>
+</root>
