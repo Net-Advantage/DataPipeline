@@ -6,8 +6,8 @@ public sealed class BlobDestinationConnection(BlobDestinationConnectionOptions c
 {
 	public override Task Load(string content)
 	{
-		//TODO: DWS: Implement
-		return Task.CompletedTask;
+		//TODO: DWS: Implement Azure Blob
+		return File.WriteAllTextAsync(ConnectionOptions.ConnectionString, content);
 	}
 }
 

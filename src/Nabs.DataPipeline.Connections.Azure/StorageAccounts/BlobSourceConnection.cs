@@ -5,9 +5,9 @@ public sealed class BlobSourceConnection(BlobSourceConnectionOptions connectionO
 {
 	public override async Task<string?> Extract()
 	{
-		//TODO: DWS: Implement'
-		string? result = "";
-		return await Task.FromResult(result);
+		//TODO: DWS: Implement Azure Blob
+		var sourceFile = await File.ReadAllTextAsync(ConnectionOptions.ConnectionString);
+		return sourceFile;
 	}
 }
 
