@@ -1,15 +1,16 @@
-﻿using Nabs.DataPipeline.Abstractions;
+﻿using Nabs.DataPipeline.Connections.Azure.StorageAccounts;
 
 namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.ActorScenario;
 
-public sealed class TestActorsPipeline : Pipeline<TestActorsPipelineInput, TestActorsPipelineOutput>
+public sealed class TestActorsPipeline
+    : Pipeline<TestActorsPipelineOptions, TestActorsPipelineOutput>
 {
     private readonly TestActorMappingStage _testActorMappingStage;
 
-    public TestActorsPipeline(TestActorsPipelineInput pipelineInput)
-        : base(pipelineInput)
+    public TestActorsPipeline(TestActorsPipelineOptions pipelineOptions)
+        : base(pipelineOptions)
     {
-        PipelineOutput = new TestActorsPipelineOutput(pipelineInput.CorrelationId);
+        PipelineOutput = pipelineOptions.PipelineOutput;
 
         _testActorMappingStage = new TestActorMappingStage(this);
 
@@ -28,21 +29,9 @@ public sealed class TestActorsPipeline : Pipeline<TestActorsPipelineInput, TestA
     }
 }
 
-public record TestActorsPipelineInput(
+
+public record TestActorsPipelineOptions(
     Guid CorrelationId,
-    string FileSourcePath,
-    string FileDestinationPath);
-
-public record TestActorsPipelineOutput(
-    Guid CorrelationId)
-{
-    public List<TestActor> TestActors { get; } = [];
-}
-
-public record TestActor
-{
-    public Guid Id { get; set; }
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
-    public DateOnly DateOfBirth { get; set; }
-}
+    TestActorsPipelineOutput PipelineOutput,
+    ISourceConnection<string> SourceConnection,
+    IDestinationConnection<string> DestinationConnection);

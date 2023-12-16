@@ -2,14 +2,14 @@
 
 public interface IPipeline : IActivity;
 
-public abstract class Pipeline<TPipelineInput, TPipelineOutput>(
-	TPipelineInput pipelineInput) 
+public abstract class Pipeline<TPipelineOptions, TPipelineOutput>(
+	TPipelineOptions pipelineOptions) 
 	: Activity, IPipeline
-		where TPipelineInput : class
+		where TPipelineOptions : class
 		where TPipelineOutput : class
 {
 	public List<IStage> Stages { get; } = [];
-	public TPipelineInput PipelineInput { get; } = pipelineInput;
+	public TPipelineOptions PipelineOptions { get; } = pipelineOptions;
 	public TPipelineOutput? PipelineOutput { get; protected set; }
 	
 	protected override async Task<ActivityResult> ProcessActivity()

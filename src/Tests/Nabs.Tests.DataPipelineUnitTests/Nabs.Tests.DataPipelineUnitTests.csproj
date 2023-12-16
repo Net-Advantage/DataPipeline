@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Nabs.DataPipeline.Connections.Azure\Nabs.DataPipeline.Connections.Azure.csproj" />
     <ProjectReference Include="..\..\Nabs.DataPipeline\Nabs.DataPipeline.csproj" />
   </ItemGroup>
 

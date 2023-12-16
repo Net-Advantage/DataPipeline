@@ -3,34 +3,42 @@ namespace Nabs.Tests.DataPipelineUnitTests;
 [UsesVerify]
 public sealed class PipelineOrchestratorUnitTest
 {
-	private readonly PipelineOrchestrator<TestActorsPipeline> _orchestrator;
-	private readonly TestActorsPipelineInput _pipelineInput;
-
-	public PipelineOrchestratorUnitTest()
+	[Fact]
+	public async Task TestFileBasedPipelineOrchestrator()
 	{
+		// Arrange
 		var correlationId = new Guid("01219a58-d3cd-4653-ae84-4db74a6ac0d5");
 		var sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
 		var destinationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsOutput.json");
 		
-		_pipelineInput = new TestActorsPipelineInput(
-			correlationId, 
-			sourceFilePath,
-			destinationFilePath);
+		var pipelineOptions = new TestActorsPipelineOutput(correlationId);
+		var sourceConnection = new FileSourceConnection(new FileSourceConnectionOptions(sourceFilePath));
+		var destinationConnection = new FileDestinationConnection(new FileDestinationConnectionOptions(destinationFilePath));
 
-		var pipeline = new TestActorsPipeline(_pipelineInput);
-		_orchestrator = new(pipeline);
+		var pipelineInput = new TestActorsPipelineOptions(
+			correlationId, 
+			pipelineOptions,
+			sourceConnection,
+			destinationConnection);
+
+		var pipeline = new TestActorsPipeline(pipelineInput);
+		PipelineOrchestrator<TestActorsPipeline> orchestrator = new(pipeline);
+
+		// Act
+		var result = await orchestrator.ExecuteAsync();
+
+		// Arrange
+		result.IsSuccess.Should().BeTrue();
+
+		var pipelineOutput = orchestrator.Pipeline.PipelineOutput!;
+		pipelineOutput.CorrelationId.Should().Be(pipelineInput.CorrelationId);
+
+		await Verify(pipelineOutput);
 	}
 
 	[Fact]
-	public async Task TestPipelineOrchestrator()
+	public async Task TestAzureBasedPipelineOrchestrator()
 	{
-		var result = await _orchestrator.ExecuteAsync();
-
-		result.IsSuccess.Should().BeTrue();
-
-		var pipelineOutput = _orchestrator.Pipeline.PipelineOutput!;
-		pipelineOutput.CorrelationId.Should().Be(_pipelineInput.CorrelationId);
-
-		await Verify(pipelineOutput);
+		await Verify("a");
 	}
 }

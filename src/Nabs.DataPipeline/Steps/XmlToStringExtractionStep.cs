@@ -5,9 +5,10 @@
 /// </summary>
 /// <typeparam name="TStage"></typeparam>
 /// <param name="stage"></param>
-public sealed class XmlExtractionStep<TStage>(TStage stage)
+public sealed class XmlToStringExtractionStep<TStage>(TStage stage)
 	: Step<TStage, XDocument>(stage)
-		where TStage : class, IStage, IXmlExtractionStepInput
+		where TStage : class, IStage, IXmlExtractionStepInput<string>
+		
 {
 	public override async Task Transform()
 	{
@@ -24,7 +25,7 @@ public sealed class XmlExtractionStep<TStage>(TStage stage)
 }
 
 
-public interface IXmlExtractionStepInput
+public interface IXmlExtractionStepInput<T>
 {
-	SourceConnection<string> SourceConnection { get; }
+	ISourceConnection<T> SourceConnection { get; }
 }
