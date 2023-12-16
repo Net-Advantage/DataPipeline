@@ -1,4 +1,4 @@
-﻿namespace Nabs.DataPipeline.Abstractions;
+﻿namespace Nabs.DataPipeline;
 
 public class PipelineOrchestrator<TPipeline>(TPipeline pipeline)
 	where TPipeline : class, IPipeline

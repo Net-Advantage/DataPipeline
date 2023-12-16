@@ -1,4 +1,4 @@
-﻿namespace Nabs.DataPipeline.Abstractions;
+﻿namespace Nabs.DataPipeline;
 
 public interface IStep : IActivity;
 
