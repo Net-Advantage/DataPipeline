@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Nabs.DataPipeline.Steps;
+﻿namespace Nabs.DataPipeline.Steps;
 
 public static class XmlExtractionExtensions
 {
