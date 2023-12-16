@@ -12,11 +12,12 @@ public sealed class PipelineOrchestratorUnitTest
 
 	public PipelineOrchestratorUnitTest()
 	{
+		var correlationId = new Guid("01219a58-d3cd-4653-ae84-4db74a6ac0d5");
 		var sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
 		var destinationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsOutput.json");
 		
 		_pipelineInput = new TestActorsPipelineInput(
-			Guid.NewGuid(), 
+			correlationId, 
 			sourceFilePath,
 			destinationFilePath);
 
