@@ -43,12 +43,12 @@ public sealed class PipelineOrchestratorUnitTest
 	{
 		// Arrange
 		var correlationId = new Guid("01219a58-d3cd-4653-ae84-4db74a6ac0d5");
-		var sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
-		var destinationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "AzureTestActorsOutput.json");
+		var sourceConnectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
+		var destinationConnectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "AzureTestActorsOutput.json");
 		
 		var pipelineOptions = new TestActorsPipelineOutput(correlationId);
-		var sourceConnection = new BlobSourceConnection(new BlobSourceConnectionOptions(sourceFilePath));
-		var destinationConnection = new BlobDestinationConnection(new BlobDestinationConnectionOptions(destinationFilePath));
+		var sourceConnection = new BlobSourceConnection(new BlobSourceConnectionOptions(sourceConnectionString));
+		var destinationConnection = new BlobDestinationConnection(new BlobDestinationConnectionOptions(destinationConnectionString));
 
 		var pipelineInput = new TestActorsPipelineOptions(
 			correlationId, 
