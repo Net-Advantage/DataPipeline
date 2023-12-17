@@ -1,6 +1,4 @@
-﻿using Nabs.DataPipeline.Connections.Azure.StorageAccounts;
-
-namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.ActorScenario;
+﻿namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.ActorScenario;
 
 public sealed class TestActorsPipeline
     : Pipeline<TestActorsPipelineOptions, TestActorsPipelineOutput>
@@ -12,7 +10,7 @@ public sealed class TestActorsPipeline
     {
         PipelineOutput = pipelineOptions.PipelineOutput;
 
-        _testActorMappingStage = new TestActorMappingStage(this);
+        _testActorMappingStage = new(this);
 
         Stages.Add(_testActorMappingStage);
     }
@@ -28,10 +26,3 @@ public sealed class TestActorsPipeline
         return Task.CompletedTask;
     }
 }
-
-
-public record TestActorsPipelineOptions(
-    Guid CorrelationId,
-    TestActorsPipelineOutput PipelineOutput,
-    ISourceConnection<string> SourceConnection,
-    IDestinationConnection<string> DestinationConnection);

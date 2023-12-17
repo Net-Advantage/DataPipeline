@@ -1,7 +1,7 @@
 namespace Nabs.Tests.DataPipelineUnitTests;
 
 [UsesVerify]
-public sealed class PipelineOrchestratorUnitTest
+public sealed class ActorScenarioUnitTests
 {
 	[Fact]
 	public async Task TestFileBasedPipelineOrchestrator()

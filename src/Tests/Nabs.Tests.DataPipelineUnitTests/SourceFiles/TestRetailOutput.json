@@ -1,0 +1,135 @@
+{
+  "CorrelationId": "efc4d7c9-7fc0-454a-86cc-0d7cd29bcbfb",
+  "Retailers": [
+    {
+      "Id": "829c4fc5-9dde-4fc5-9088-44c38cdb59a2",
+      "Name": "Woolies"
+    }
+  ],
+  "Customers": [
+    {
+      "Id": "82fab3cc-187a-42d0-aa67-9aa4f119279b",
+      "Name": "Robinson Family",
+      "Address": "123 Some Street, Uptown, VA 1002"
+    },
+    {
+      "Id": "f8ca682c-df09-4d72-a304-08ad06cf1b59",
+      "Name": "Outback Retirement Home",
+      "Address": "Outback, WA 2001"
+    },
+    {
+      "Id": "dd61b0e7-b5f1-4721-ac1d-0712837a3498",
+      "Name": "Smith Family",
+      "Address": "456 Elm Avenue, Uptown, VA 1002"
+    },
+    {
+      "Id": "f8ca682c-df09-4d72-a304-08ad06cf1b59",
+      "Name": "Uptown Lawn Bowling Club",
+      "Address": "68 Splender Road, Outback, WA 2001"
+    }
+  ],
+  "Consumers": [
+    {
+      "Id": "a941a474-c980-4b91-a7ff-d72709b2648f",
+      "FirstName": "Mary",
+      "LastName": "",
+      "PrimaryShopper": true
+    },
+    {
+      "Id": "3f248070-aa65-4fea-a35f-cc4b2f08ddf5",
+      "FirstName": "Bill",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "3f248070-aa65-4fea-a35f-cc4b2f08ddf5",
+      "FirstName": "Claire",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "4eb33b16-04a7-4d0a-bc32-f74747395528",
+      "FirstName": "Mildred",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "5f43f020-8029-48ee-aace-f9dd9d150794",
+      "FirstName": "Maybel",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Harold",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "a941a474-c980-4b91-a7ff-d72709b2648f",
+      "FirstName": "Emily",
+      "LastName": "",
+      "PrimaryShopper": true
+    },
+    {
+      "Id": "3f248070-aa65-4fea-a35f-cc4b2f08ddf5",
+      "FirstName": "John",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "3f248070-aa65-4fea-a35f-cc4b2f08ddf5",
+      "FirstName": "Sarah",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "3f248070-aa65-4fea-a35f-cc4b2f08ddf5",
+      "FirstName": "Mia",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Vernon",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Raymond",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Walter",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Eugene",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Clarence",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Norman",
+      "LastName": "",
+      "PrimaryShopper": false
+    },
+    {
+      "Id": "28e469a2-c7be-48f9-bc78-f0a6fc39991f",
+      "FirstName": "Oscar",
+      "LastName": "",
+      "PrimaryShopper": false
+    }
+  ]
+}

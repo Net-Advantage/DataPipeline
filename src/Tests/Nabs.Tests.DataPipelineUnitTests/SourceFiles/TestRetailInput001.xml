@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Retailers>
+		<Retailer id="829c4fc5-9dde-4fc5-9088-44c38cdb59a2">
+			<Name>Woolies</Name>
+			<Customers>
+				<Customer id="82fab3cc-187a-42d0-aa67-9aa4f119279b">
+					<Name>Robinson Family</Name>
+					<Address>123 Some Street, Uptown, VA 1002</Address>
+					<Consumers>
+						<Consumer id="a941a474-c980-4b91-a7ff-d72709b2648f">
+							<GivenName>Mary</GivenName>
+							<Surname>Robinson</Surname>
+							<PrimaryShopper>True</PrimaryShopper>
+						</Consumer>
+						<Consumer id="3f248070-aa65-4fea-a35f-cc4b2f08ddf5">
+							<GivenName>Bill</GivenName>
+							<Surname>Robinson</Surname>
+						</Consumer>
+						<Consumer id="3f248070-aa65-4fea-a35f-cc4b2f08ddf5">
+							<GivenName>Claire</GivenName>
+							<Surname>Robinson</Surname>
+						</Consumer>
+					</Consumers>
+				</Customer>
+				<Customer id="f8ca682c-df09-4d72-a304-08ad06cf1b59">
+					<Name>Outback Retirement Home</Name>
+					<Address>Outback, WA 2001</Address>
+					<Consumers>
+						<Consumer id="4eb33b16-04a7-4d0a-bc32-f74747395528">
+							<GivenName>Mildred</GivenName>
+							<Surname>McIntyre</Surname>
+						</Consumer>
+						<Consumer id="5f43f020-8029-48ee-aace-f9dd9d150794">
+							<GivenName>Maybel</GivenName>
+							<Surname>Fanshaw</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Harold</GivenName>
+							<Surname>Kingsley</Surname>
+						</Consumer>
+					</Consumers>
+				</Customer>
+			</Customers>
+		</Retailer>
+	</Retailers>
+</root>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Retailers>
+		<Retailer id="829c4fc5-9dde-4fc5-9088-44c38cdb59a2">
+			<Name>Woolies</Name>
+			<Customers>
+				<Customer id="dd61b0e7-b5f1-4721-ac1d-0712837a3498">
+					<Name>Smith Family</Name>
+					<Address>456 Elm Avenue, Uptown, VA 1002</Address>
+					<Consumers>
+						<Consumer id="a941a474-c980-4b91-a7ff-d72709b2648f">
+							<GivenName>Emily</GivenName>
+							<Surname>Smith</Surname>
+							<PrimaryShopper>True</PrimaryShopper>
+						</Consumer>
+						<Consumer id="3f248070-aa65-4fea-a35f-cc4b2f08ddf5">
+							<GivenName>John</GivenName>
+							<Surname>Smith</Surname>
+						</Consumer>
+						<Consumer id="3f248070-aa65-4fea-a35f-cc4b2f08ddf5">
+							<GivenName>Sarah</GivenName>
+							<Surname>Smith</Surname>
+						</Consumer>
+						<Consumer id="3f248070-aa65-4fea-a35f-cc4b2f08ddf5">
+							<GivenName>Mia</GivenName>
+							<Surname>Smith</Surname>
+						</Consumer>
+					</Consumers>
+				</Customer>
+				<Customer id="f8ca682c-df09-4d72-a304-08ad06cf1b59">
+					<Name>Uptown Lawn Bowling Club</Name>
+					<Address>68 Splender Road, Outback, WA 2001</Address>
+					<Consumers>
+						<Consumer id="4eb33b16-04a7-4d0a-bc32-f74747395528">
+							<GivenName>Mildred</GivenName>
+							<Surname>McIntyre</Surname>
+						</Consumer>
+						<Consumer id="5f43f020-8029-48ee-aace-f9dd9d150794">
+							<GivenName>Maybel</GivenName>
+							<Surname>Fanshaw</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Harold</GivenName>
+							<Surname>Kingsley</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Vernon</GivenName>
+							<Surname>Whitfield</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Raymond</GivenName>
+							<Surname>Beckett</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Walter</GivenName>
+							<Surname>Montgomery</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Eugene</GivenName>
+							<Surname>Caldwell</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Clarence</GivenName>
+							<Surname>Holloway</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Norman</GivenName>
+							<Surname>Witherspoon</Surname>
+						</Consumer>
+						<Consumer id="28e469a2-c7be-48f9-bc78-f0a6fc39991f">
+							<GivenName>Oscar</GivenName>
+							<Surname>Pennington</Surname>
+						</Consumer>
+					</Consumers>
+				</Customer>
+			</Customers>
+		</Retailer>
+	</Retailers>
+</root>

@@ -2,9 +2,9 @@
 
 public sealed class TestActorMappingStage
 	: Stage<TestActorsPipeline, TestActorsPipelineOutput>, 
-		IXmlExtractionStepInput<string>
+		IExtractToXDocumentStepOptions
 {
-	private readonly XmlToStringExtractionStep<TestActorMappingStage> _xmlExtractionStep;
+	private readonly ExtractToXDocumentStep<TestActorMappingStage> _extractToXDocumentStep;
 
 	public TestActorMappingStage(TestActorsPipeline pipeline) : base(pipeline)
 	{
@@ -12,24 +12,24 @@ public sealed class TestActorMappingStage
 		SourceConnection = Pipeline.PipelineOptions.SourceConnection;
 		DestinationConnection = Pipeline.PipelineOptions.DestinationConnection;
 
-		_xmlExtractionStep = new XmlToStringExtractionStep<TestActorMappingStage>(this);
+		_extractToXDocumentStep = new(this);
 
-		Steps.AddLast(_xmlExtractionStep);
+		Steps.AddLast(_extractToXDocumentStep);
 	}
 
-	public ISourceConnection<string> SourceConnection { get; }
+	public ISourceConnection<SourceFile[]> SourceConnection { get; }
 	public IDestinationConnection<string> DestinationConnection { get; }
 	
 
 	public override async Task Transform()
 	{
-		if (_xmlExtractionStep.StepOutput is null)
+		if (_extractToXDocumentStep.StepOutput is null)
 		{
 			await Task.CompletedTask;
 			return;
 		}
 
-		var people = _xmlExtractionStep.StepOutput!
+		var people = _extractToXDocumentStep.StepOutput![0].document
 			.Descendants("Person")
 			.Select(ParsePersonElement);
 

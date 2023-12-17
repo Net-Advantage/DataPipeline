@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Retailers>
+		<Retailer id="a2b7f1d8-63e1-4a63-8cbf-9f501678d32d">
+			<Name>ShopEzy</Name>
+			<Customers>
+				<Customer id="12345678-1234-5678-1234-567812345678">
+					<Name>Emily Smith</Name>
+					<Address>789 Oak Lane, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="87654321-4321-8765-4321-876543218765">
+					<Name>Michael Johnson</Name>
+					<Address>456 Pine Street, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="34561234-5678-1234-5678-123456781234">
+					<Name>Olivia Williams</Name>
+					<Address>123 Maple Drive, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="23456789-9012-3456-7890-123456789012">
+					<Name>William Brown</Name>
+					<Address>567 Cedar Road, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="45678901-2345-6789-0123-456789012345">
+					<Name>Emma Jones</Name>
+					<Address>678 Birch Avenue, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="56789012-3456-7890-1234-567890123456">
+					<Name>James Davis</Name>
+					<Address>890 Walnut Street, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+				<Customer id="67890123-4567-8901-2345-678901234567">
+					<Name>Sarah Wilson</Name>
+					<Address>123 Cedar Lane, Townsville, CA 2001</Address>
+					<PrimaryShopper>True</PrimaryShopper>
+				</Customer>
+			</Customers>
+		</Retailer>
+	</Retailers>
+</root>

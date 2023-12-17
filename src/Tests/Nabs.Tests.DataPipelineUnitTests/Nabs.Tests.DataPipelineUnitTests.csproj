@@ -29,4 +29,13 @@
     <ProjectReference Include="..\..\Nabs.DataPipeline\Nabs.DataPipeline.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ActorScenarioUnitTests.TestAzureBasedPipelineOrchestrator.verified.txt">
+      <DependentUpon>ActorScenarioUnitTests.cs</DependentUpon>
+    </None>
+    <None Update="ActorScenarioUnitTests.TestFileBasedPipelineOrchestrator.verified.txt">
+      <DependentUpon>ActorScenarioUnitTests.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

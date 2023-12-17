@@ -1,0 +1,135 @@
+﻿{
+  CorrelationId: Guid_1,
+  Retailers: [
+    {
+      Id: Guid_2,
+      Name: Woolies
+    }
+  ],
+  Customers: [
+    {
+      Id: Guid_3,
+      Name: Robinson Family,
+      Address: 123 Some Street, Uptown, VA 1002
+    },
+    {
+      Id: Guid_4,
+      Name: Outback Retirement Home,
+      Address: Outback, WA 2001
+    },
+    {
+      Id: Guid_5,
+      Name: Smith Family,
+      Address: 456 Elm Avenue, Uptown, VA 1002
+    },
+    {
+      Id: Guid_4,
+      Name: Uptown Lawn Bowling Club,
+      Address: 68 Splender Road, Outback, WA 2001
+    }
+  ],
+  Consumers: [
+    {
+      Id: Guid_6,
+      FirstName: Mary,
+      LastName: ,
+      PrimaryShopper: true
+    },
+    {
+      Id: Guid_7,
+      FirstName: Bill,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_7,
+      FirstName: Claire,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_8,
+      FirstName: Mildred,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_9,
+      FirstName: Maybel,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Harold,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_6,
+      FirstName: Emily,
+      LastName: ,
+      PrimaryShopper: true
+    },
+    {
+      Id: Guid_7,
+      FirstName: John,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_7,
+      FirstName: Sarah,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_7,
+      FirstName: Mia,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Vernon,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Raymond,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Walter,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Eugene,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Clarence,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Norman,
+      LastName: ,
+      PrimaryShopper: false
+    },
+    {
+      Id: Guid_10,
+      FirstName: Oscar,
+      LastName: ,
+      PrimaryShopper: false
+    }
+  ]
+}

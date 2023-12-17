@@ -39,4 +39,11 @@ public static class XmlExtractionExtensions
 			: Guid.Empty;
 		return value;
 	}
+
+	public static bool ExtractBooleanValue(this XElement? element)
+	{
+		var value = element?.Value is not null
+			&& bool.Parse(element.Value);
+		return value;
+	}
 }

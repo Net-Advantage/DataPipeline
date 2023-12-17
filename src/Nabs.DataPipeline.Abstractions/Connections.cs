@@ -7,7 +7,7 @@ public interface IConnection
 
 public interface ISourceConnection<T>
 {
-	abstract Task<T?> Extract();
+	abstract Task<T> Extract();
 }
 
 public interface IDestinationConnection<T>
@@ -25,7 +25,7 @@ public abstract class SourceConnection<TConnectionOptions, T> : ISourceConnectio
 
 	protected TConnectionOptions ConnectionOptions { get; }
 
-	public abstract Task<T?> Extract();
+	public abstract Task<T> Extract();
 }
 
 public abstract class DestinationConnection<TConnectionOptions, T> : IDestinationConnection<T>
