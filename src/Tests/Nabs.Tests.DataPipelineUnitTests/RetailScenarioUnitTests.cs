@@ -11,27 +11,25 @@ public sealed class RetailScenarioUnitTests
 		var sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestRetailInput*.xml");
 		var destinationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestRetailOutput.json");
 		
-		var pipelineOptions = new TestRetailPipelineOutput(correlationId);
-		var sourceConnection = new FileSourceConnection(new FileSourceConnectionOptions(sourceFilePath));
-		var destinationConnection = new FileDestinationConnection(new FileDestinationConnectionOptions(destinationFilePath));
-
-		var pipelineInput = new TestRetailPipelineOptions(
+		var pipelineState = new TestRetailPipelineState(
 			correlationId, 
-			pipelineOptions,
-			sourceConnection,
-			destinationConnection);
+			new TestRetailPipelineOutput(correlationId), 
+			new FileSourceConnection(new FileSourceConnectionOptions(sourceFilePath)),
+			new FileDestinationConnection(new FileDestinationConnectionOptions(destinationFilePath)));
 
-		var pipeline = new TestRetailPipeline(pipelineInput);
-		PipelineOrchestrator<TestRetailPipeline> orchestrator = new(pipeline);
+
+		var pipeline = new TestRetailPipeline(pipelineState);
+		pipeline.AddStep<ExtractToXDocumentStep<TestRetailPipelineState>>();
+		pipeline.AddStep<TestRetailStep>();
 
 		// Act
-		var result = await orchestrator.ExecuteAsync();
+		var result = await pipeline.Process();
 
 		// Arrange
 		result.IsSuccess.Should().BeTrue();
 
-		var pipelineOutput = orchestrator.Pipeline.PipelineOutput!;
-		pipelineOutput.CorrelationId.Should().Be(pipelineInput.CorrelationId);
+		var pipelineOutput = pipeline.PipelineState.PipelineOutput;
+		pipelineOutput.CorrelationId.Should().Be(correlationId);
 
 		await Verify(pipelineOutput);
 	}

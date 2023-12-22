@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Stages\" />
     <Folder Include="Pipelines\" />
   </ItemGroup>
 

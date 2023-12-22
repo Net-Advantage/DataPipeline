@@ -1,34 +1,13 @@
-﻿
-using Nabs.DataPipeline;
+﻿namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.RetailScenario;
 
-namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.RetailScenario;
-
-public sealed class TestRetailStage
-	: Stage<TestRetailPipeline, TestRetailPipelineOutput>,
-		IExtractToXDocumentStepOptions,
-		IXDocumentExtractionStepInput<List<TestRetailFlattenModel>>
+public sealed class TestRetailStep(TestRetailPipelineState pipelineState) 
+	: Step<TestRetailPipelineState>(pipelineState)
 {
-	private readonly ExtractToXDocumentStep<TestRetailStage> _xmlExtractionStep;
-	private readonly FlattenXDocumentStep<TestRetailStage, List<TestRetailFlattenModel>> _xDocumentFlattenStep;
-
-	public TestRetailStage(TestRetailPipeline pipeline)
-		: base(pipeline)
-	{
-		StageOutput = Pipeline.PipelineOutput!;
-
-		_xmlExtractionStep = new(this);
-		_xDocumentFlattenStep = new(this, FlattenTestRetailFunc);
-
-		Steps.AddLast(_xmlExtractionStep);
-		Steps.AddLast(_xDocumentFlattenStep);
-	}
-
-	public ISourceConnection<SourceFile[]> SourceConnection => Pipeline.PipelineOptions.SourceConnection;
-	public IDestinationConnection<string> DestinationConnection => Pipeline.PipelineOptions.DestinationConnection;
-
 	public override async Task Transform()
 	{
-		var retailers = _xDocumentFlattenStep.StepOutput!
+		var flatten = Flatten();
+
+		var retailers = flatten
 			.Select(retailer => new Retailer()
 			{
 				Id = retailer.RetailerId,
@@ -37,7 +16,7 @@ public sealed class TestRetailStage
 			.Distinct()
 			.ToList();
 
-		var customers = _xDocumentFlattenStep.StepOutput!
+		var customers = flatten
 			.Select(customer => new Customer()
 			{
 				Id = customer.CustomerId,
@@ -47,7 +26,7 @@ public sealed class TestRetailStage
 			.Distinct()
 			.ToList();
 
-		var consumers = _xDocumentFlattenStep.StepOutput!
+		var consumers = flatten
 			.Select(consumer => new Consumer()
 			{
 				Id = consumer.ConsumerId,
@@ -58,18 +37,18 @@ public sealed class TestRetailStage
 			.Distinct()
 			.ToList();
 
-		StageOutput!.Retailers.AddRange(retailers);
-		StageOutput!.Customers.AddRange(customers);
-		StageOutput!.Consumers.AddRange(consumers);
+		PipelineState.PipelineOutput.Retailers.AddRange(retailers);
+		PipelineState.PipelineOutput.Customers.AddRange(customers);
+		PipelineState.PipelineOutput.Consumers.AddRange(consumers);
 
-		var json = JsonConvert.SerializeObject(StageOutput, Formatting.Indented);
-		await DestinationConnection.Load(json);
+		var json = JsonConvert.SerializeObject(PipelineState.PipelineOutput, Formatting.Indented);
+		await PipelineState.DestinationConnection.Load(json);
 	}
 
-	private List<TestRetailFlattenModel> FlattenTestRetailFunc()
+	private List<TestRetailFlattenModel> Flatten()
 	{
 		var result = new List<TestRetailFlattenModel>();
-		foreach (var (filePath, document) in _xmlExtractionStep.StepOutput!)
+		foreach (var (filePath, document) in PipelineState.SourceDocuments)
 		{
 			var flattenedData = document
 			   .Descendants("Retailer")

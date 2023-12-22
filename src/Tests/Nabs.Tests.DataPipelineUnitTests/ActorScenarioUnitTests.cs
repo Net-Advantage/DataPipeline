@@ -1,3 +1,6 @@
+using Nabs.DataPipeline;
+using Nabs.DataPipeline.Steps;
+
 namespace Nabs.Tests.DataPipelineUnitTests;
 
 [UsesVerify]
@@ -11,27 +14,26 @@ public sealed class ActorScenarioUnitTests
 		var sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
 		var destinationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsOutput.json");
 		
-		var pipelineOptions = new TestActorsPipelineOutput(correlationId);
-		var sourceConnection = new FileSourceConnection(new FileSourceConnectionOptions(sourceFilePath));
-		var destinationConnection = new FileDestinationConnection(new FileDestinationConnectionOptions(destinationFilePath));
+		var pipelineState = new TestActorsPipelineState()
+		{
+			CorrelationId = correlationId,
+			SourceConnection = new FileSourceConnection(new FileSourceConnectionOptions(sourceFilePath)),
+			DestinationConnection  = new FileDestinationConnection(new FileDestinationConnectionOptions(destinationFilePath))
+		};
+		pipelineState.PipelineOutput.CorrelationId = correlationId;
 
-		var pipelineInput = new TestActorsPipelineOptions(
-			correlationId, 
-			pipelineOptions,
-			sourceConnection,
-			destinationConnection);
-
-		var pipeline = new TestActorsPipeline(pipelineInput);
-		PipelineOrchestrator<TestActorsPipeline> orchestrator = new(pipeline);
+		var pipeline = new TestActorsPipeline(pipelineState);
+		pipeline.AddStep<ExtractToXDocumentStep<TestActorsPipelineState>>();
+		pipeline.AddStep<TestActorMappingStep>();
 
 		// Act
-		var result = await orchestrator.ExecuteAsync();
+		var result = await pipeline.Process();
 
 		// Arrange
 		result.IsSuccess.Should().BeTrue();
 
-		var pipelineOutput = orchestrator.Pipeline.PipelineOutput!;
-		pipelineOutput.CorrelationId.Should().Be(pipelineInput.CorrelationId);
+		var pipelineOutput = pipeline.PipelineState.PipelineOutput;
+		pipelineOutput.CorrelationId.Should().Be(correlationId);
 
 		await Verify(pipelineOutput);
 	}
@@ -44,27 +46,26 @@ public sealed class ActorScenarioUnitTests
 		var sourceConnectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "TestActorsInput.xml");
 		var destinationConnectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "SourceFiles", "AzureTestActorsOutput.json");
 		
-		var pipelineOptions = new TestActorsPipelineOutput(correlationId);
-		var sourceConnection = new BlobSourceConnection(new BlobSourceConnectionOptions(sourceConnectionString));
-		var destinationConnection = new BlobDestinationConnection(new BlobDestinationConnectionOptions(destinationConnectionString));
+		var pipelineState = new TestActorsPipelineState()
+		{
+			CorrelationId = correlationId,
+			SourceConnection = new BlobSourceConnection(new BlobSourceConnectionOptions(sourceConnectionString)),
+			DestinationConnection  = new BlobDestinationConnection(new BlobDestinationConnectionOptions(destinationConnectionString))
+		};
+		pipelineState.PipelineOutput.CorrelationId = correlationId;
 
-		var pipelineInput = new TestActorsPipelineOptions(
-			correlationId, 
-			pipelineOptions,
-			sourceConnection,
-			destinationConnection);
-
-		var pipeline = new TestActorsPipeline(pipelineInput);
-		PipelineOrchestrator<TestActorsPipeline> orchestrator = new(pipeline);
+		var pipeline = new TestActorsPipeline(pipelineState);
+		pipeline.AddStep<ExtractToXDocumentStep<TestActorsPipelineState>>();
+		pipeline.AddStep<TestActorMappingStep>();
 
 		// Act
-		var result = await orchestrator.ExecuteAsync();
+		var result = await pipeline.Process();
 
 		// Arrange
 		result.IsSuccess.Should().BeTrue();
 
-		var pipelineOutput = orchestrator.Pipeline.PipelineOutput!;
-		pipelineOutput.CorrelationId.Should().Be(pipelineInput.CorrelationId);
+		var pipelineOutput = pipeline.PipelineState.PipelineOutput;
+		pipelineOutput.CorrelationId.Should().Be(correlationId);
 
 		await Verify(pipelineOutput);
 	}

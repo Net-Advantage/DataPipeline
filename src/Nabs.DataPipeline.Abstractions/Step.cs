@@ -1,20 +1,22 @@
 ﻿namespace Nabs.DataPipeline;
 
-public interface IStep : IActivity;
-
-public abstract class Step<TStage, TStepOutput>(
-	TStage stage)
-	: Activity, IStep
-		where TStage : class, IStage
-		where TStepOutput : class
+public interface IStep<TPipelineState>
+	where TPipelineState : class, IPipelineState
 {
-	public TStage Stage { get; } = stage;
-	public TStepOutput? StepOutput { get; protected set; }
+	TPipelineState PipelineState { get; }
 
-	protected override async Task<ActivityResult> ProcessActivity()
+	Task Transform();
+}
+
+public abstract class Step<TPipelineState> : IStep<TPipelineState>
+	where TPipelineState : class, IPipelineState
+{
+	protected Step(TPipelineState pipelineState)
 	{
-		await Transform();
-
-		return ActivityError.None;
+		PipelineState = pipelineState;
 	}
+
+	public TPipelineState PipelineState { get; }
+
+	public abstract Task Transform();
 }

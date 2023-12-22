@@ -1,44 +1,5 @@
 ﻿namespace Nabs.DataPipeline;
 
-public interface IActivity
-{
-	string ActivityName { get; }
-	ActivityStatus ActivityStatus { get; }
-
-	Task<ActivityResult> Process();
-}
-
-public abstract class Activity : IActivity
-{
-	public Activity()
-	{
-		ActivityName = GetType().Name;
-	}
-
-	public string ActivityName { get; protected set; }
-	public ActivityStatus ActivityStatus { get; private set; } = ActivityStatus.NotStarted;
-
-	public async Task<ActivityResult> Process()
-	{
-		ActivityStatus = ActivityStatus.InProgress;
-		try
-		{
-			return await ProcessActivity();
-		}
-		catch (Exception ex)
-		{
-			return ActivityResult.Failure(ex);
-		}
-		finally
-		{
-			ActivityStatus = ActivityStatus.Completed;
-		}
-	}
-
-	protected abstract Task<ActivityResult> ProcessActivity();
-	public abstract Task Transform();
-}
-
 public enum ActivityStatus
 {
 	NotStarted,

@@ -1,11 +1,16 @@
-﻿namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.RetailScenario;
+﻿
+namespace Nabs.Tests.DataPipelineUnitTests.TestPipelineScenario.RetailScenario;
 
 
-public sealed record TestRetailPipelineOptions(
+public sealed record TestRetailPipelineState(
 	Guid CorrelationId,
 	TestRetailPipelineOutput PipelineOutput,
 	ISourceConnection<SourceFile[]> SourceConnection,
-	IDestinationConnection<string> DestinationConnection);
+	IDestinationConnection<string> DestinationConnection)
+	: IPipelineState, IExtractXmlToXDocument
+{
+	public List<(string filePath, XDocument document)> SourceDocuments { get; } = [];
+}
 
 public sealed record TestRetailPipelineOutput(
 	Guid CorrelationId)
